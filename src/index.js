@@ -4,7 +4,16 @@ const fileContent = "Newton School";
 const writeFile = async (fileName, fileContent) => {
     //Write your code here
     //Don't change function name
-    fs.writeFile(fileName,fileContent);
+    try{
+       await fs.access(fileName);
+       console.log("myfile.txt already exists. Skipping write operation");
+    }
+    catch(error)
+    {
+       await fs.writeFile(fileName,fileContent);
+       console.log("File myfile.txt created and data written successfully!");
+    }
+      
 };
 writeFile(fileName,fileContent);
 module.exports =  writeFile ;
