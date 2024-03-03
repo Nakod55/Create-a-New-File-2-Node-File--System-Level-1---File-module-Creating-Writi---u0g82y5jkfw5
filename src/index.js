@@ -4,6 +4,7 @@ const fileContent = "Newton School";
 const writeFile = async (fileName, fileContent) => {
     //Write your code here
     //Don't change function name
-  
+    fs.writeFile(fileName,fileContent);
 };
+writeFile(fileName,fileContent);
 module.exports =  writeFile ;
